@@ -121,7 +121,7 @@ def alert(message)
 end
 
 def alert_turned_on
-    alert('Washer turned on. You will be alerted when it stops.')
+    alert("Washer turned on at #{Time.now.to_s[0..15]}.  You will be alerted when it stops.")
 end
 
 def alert_not_started
@@ -129,7 +129,7 @@ def alert_not_started
 end
 
 def alert_completed
-    alert('Your wash is complete.')
+    alert("Your wash is complete at #{Time.now.to_s[0..15]}.")
 end
 
 def qr_codes
