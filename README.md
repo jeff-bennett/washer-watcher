@@ -1,5 +1,5 @@
 # Washer Watcher
-Ruby server script to watch a CloudFree Smart Plug connected to a washing machine and alert the user via SMS when it is done with a load.  Uses Home Assistant to poll the script although there are other ways to do this.
+Ruby CGI script to watch a CloudFree Smart Plug connected to a washing machine and alert the user via SMS when it is done with a load.  Uses Home Assistant to poll the script although there are other ways to do this.
 
 ## Notes
 This was created in a weekend in response to my wife wanting to be alerted when the washing machine was done with a load.  Since we have seven adults in the home I decided to make something that would alert whoever started the load when their load was complete.  I started by trying to make my own energy monitor ESPHome module but that did not work, so I used a CloudFree Smart Plug 2 with Tasmota.
