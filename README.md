@@ -1,5 +1,5 @@
 # Washer Watcher
-Ruby server script to watch a CloudFree Smart Plug connected to a washing machine and alert the user via SMS when it is done with a load.
+Ruby server script to watch a CloudFree Smart Plug connected to a washing machine and alert the user via SMS when it is done with a load.  Uses Home Assistant to poll the script although there are other ways to do this.
 
 ## Notes
 This was created in a weekend in response to my wife wanting to be alerted when the washing machine was done with a load.  Since we have seven adults in the home I decided to make something that would alert whoever started the load when their load was complete.  I started by trying to make my own energy monitor ESPHome module but that did not work, so I used a CloudFree Smart Plug 2 with Tasmota.
@@ -21,13 +21,13 @@ Set up fastcgiwrap according to the instructions at https://www.howtoforge.com/s
       gzip off;
       # Set the root to /usr/lib (inside this location this means that we are
       # giving access to the files under /usr/lib/cgi-bin)
-      root  /usr/lib;
+      root /usr/lib;
       # Fastcgi socket
-      fastcgi_pass  unix:/var/run/fcgiwrap.socket;
+      fastcgi_pass unix:/var/run/fcgiwrap.socket;
       # Fastcgi parameters, include the standard ones
       include /etc/nginx/fastcgi_params;
       # Adjust non standard parameters (SCRIPT_FILENAME)
-      fastcgi_param SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
     }
   }
 ~~~~
