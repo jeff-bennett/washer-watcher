@@ -1,6 +1,6 @@
 {
 "plug_ip":"[SMART_PLUG_IP_ADDRESS]",
-"server_ip":"[NGINX_SERVER_IP_ADDRESS]",
+"server_ip":"[NGINX_SERVER_IP_ADDRESS]:9191",
 "status":"IDLE",
 "phone":"",
 "on_time":null
