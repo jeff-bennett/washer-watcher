@@ -22,7 +22,7 @@ args = ENV['QUERY_STRING'].split('&').each_with_object({}) do |q, obj|
 end
 
 def outlet_state
-    uri = URI("http://#{@state['ip']}?m=1")
+    uri = URI("http://#{@state['plug_ip']}?m=1")
     res = Net::HTTP.get_response(uri)
     # do something unless res.is_a?(Net::HTTPSuccess) 
     {
@@ -32,7 +32,7 @@ def outlet_state
 end
 
 def toggle_outlet
-    uri = URI("http://#{@state['ip']}?m=1&o=1")
+    uri = URI("http://#{@state['plug_ip']}?m=1&o=1")
     res = Net::HTTP.get_response(uri)
 end
 
@@ -144,7 +144,7 @@ def qr_codes
 
     i=1
     @oklist.each do |phone, (name, _carrier)|
-        png = RQRCode::QRCode.new("http://192.168.93.2:9191/cgi-bin/washer.rb?cmd=start&phone=#{phone}").as_png(args)
+        png = RQRCode::QRCode.new("http://#{@state['server_ip']}/cgi-bin/washer.rb?cmd=start&phone=#{phone}").as_png(args)
         imgfile = "/tmp/qrcode-#{name}.png"
         IO.binwrite(imgfile, png.to_s)
 
@@ -152,7 +152,7 @@ def qr_codes
         html.puts("</tr><tr>") if (i+=1).odd?
     end
 
-    png = RQRCode::QRCode.new("http://192.168.93.2:9191/cgi-bin/washer.rb?cmd=reset").as_png(args)
+    png = RQRCode::QRCode.new("http://#{@state['server_ip']}/cgi-bin/washer.rb?cmd=reset").as_png(args)
     imgfile = '/tmp/qrcode-Reset.png'
     name = 'Reset'
     IO.binwrite(imgfile, png.to_s)
